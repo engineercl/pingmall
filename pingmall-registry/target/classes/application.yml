@@ -1,0 +1,23 @@
+server:
+  #端口
+  port: 10001
+
+spring:
+  application:
+    #Spring应用名称（注册中心）
+    name: pingmall-registry
+
+eureka:
+  client:
+    service-url:
+      #其它服务注册地址
+      defaultZone: http://localhost:10001/eureka
+    #不在Eureka注册自己
+    register-with-eureka: false
+    #不从Eureka获取服务
+    fetch-registry: false
+  server:
+    #关闭自我保护机制
+    enable-self-preservation: false
+    #清理无效服务时间（毫秒）
+    eviction-interval-timer-in-ms: 60000

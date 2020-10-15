@@ -1,0 +1,38 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: search-service
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.59.132:9300
+  jackson:
+    default-property-inclusion: non_null
+  #RabbitMQ相关配置
+  rabbitmq:
+    #RabbitMQ主机地址
+    host: 192.168.59.132
+    #指定虚拟机主机地址
+    virtual-host: /pingmall
+    username: pingmall
+    password: cl910526
+    template:
+      #指定交换机
+      exchange: PINGMALL.ITEM.EXCHANGE
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10001/eureka
+    #获取服务频率（10秒/次）
+    registry-fetch-interval-seconds: 10
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+feign:
+  hystrix:
+    enabled: false
+  httpclient:
+    connection-timeout: 6000

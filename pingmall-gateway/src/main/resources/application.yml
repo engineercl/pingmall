@@ -1,0 +1,43 @@
+server:
+  port: 10002
+spring:
+  application:
+    name: pingmall-gateway
+eureka:
+  client:
+    service-url:
+      #查询服务地址
+      defaultZone: http://localhost:10001/eureka
+    #获取服务间隔时间（秒）
+    registry-fetch-interval-seconds: 10
+    register-with-eureka: true
+    fetch-registry: true
+#网关
+zuul:
+  #通用访问前缀
+  prefix: /api
+  routes:
+    item-service: /item/**
+    search-service: /search/**
+    user-service: /user/**
+    auth-service: /auth/**
+    cart-service: /cart/**
+    order-service: /order/**
+  #携带地址头信息（域名）
+  add-host-header: true
+  #敏感头信息（设置为空，避免忽略Cookie）
+  sensitive-headers:
+pingmall:
+  jwt:
+    #公钥地址
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub
+    cookieName: PM_TOKEN
+  filter:
+    #网关过滤器白名单（不需要身份认证就可以访问的路径）
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

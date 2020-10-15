@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql:///pingmall
+    username: root
+    password: root
+  #RabbitMQ相关配置
+  rabbitmq:
+    #RabbitMQ主机地址
+    host: 192.168.59.132
+    #指定虚拟机主机地址
+    virtual-host: /pingmall
+    username: pingmall
+    password: cl910526
+    template:
+      #指定交换机
+      exchange: PINGMALL.ITEM.EXCHANGE
+eureka:
+  client:
+    service-url:
+      #服务资源地址
+      defaultZone: http://localhost:10001/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    #心跳间隔（秒）
+    lease-renewal-interval-in-seconds: 5
+    #过期时长（秒）
+    lease-expiration-duration-in-seconds: 15
+mybatis:
+  type-aliases-package: com.pingmall.item.pojo

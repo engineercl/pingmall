@@ -1,0 +1,25 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql:///pingmall
+    username: root
+    password: root
+  redis:
+    host: 192.168.59.132
+  rabbitmq:
+    host: 192.168.59.132
+    username: pingmall
+    password: cl910526
+    virtual-host: /pingmall
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+mybatis:
+  type-aliases-package: com.pingmall.user.pojo

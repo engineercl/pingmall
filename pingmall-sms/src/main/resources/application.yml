@@ -1,0 +1,20 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.59.132
+    username: pingmall
+    password: cl910526
+    virtual-host: /pingmall
+pingmall:
+  sms:
+    #阿里云AccessKeyID
+    accessKeyId: LTAI4G2db6a7WpCKD7E6nk5E
+    #阿里云AccessKeySecret
+    accessKeySecret: KjLuGRS4ImXkwDYU8dJevmNAPdkQmZ
+    #签名名称
+    signName: 品茂商城
+    #模板名称
+    verifyCodeTemplate: SMS_202822321
