@@ -11,10 +11,10 @@ spring:
 pingmall:
   sms:
     #阿里云AccessKeyID
-    accessKeyId: ######
+    accessKeyId: ########
     #阿里云AccessKeySecret
-    accessKeySecret: ######
+    accessKeySecret: ########
     #签名名称
     signName: 品茂商城
     #模板名称
-    verifyCodeTemplate: ######
+    verifyCodeTemplate: ########
